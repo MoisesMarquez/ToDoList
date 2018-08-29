@@ -30,13 +30,13 @@ app.get('/tasks',function(req, res){
 });
 
 app.post('/tasks', function(req, res) {
-	console.log('Agrego la tarea: '+req.body.task+' con el id: '+tasks.length);
+
     tasks.push(new task(tasks.length,req.body.task,0));
     res.status(201).end();
 });
 
 app.delete('/tasks/:id',function(req, res) {
-	console.log('me piden borrar la tarea con el id: '+req.params.id);
+
 	aux = req.params.id;
 	delete tasks[aux];
 	res.status(200).end();
@@ -45,7 +45,6 @@ app.delete('/tasks/:id',function(req, res) {
 app.put('/tasks/:id',function (req, res) {
 	
 	for(var i = 0;i<tasks.length;i++){
-
 		if(tasks[i] != null){
 			if(tasks[i].id == req.params.id){
 				tasks[i].done = 1;

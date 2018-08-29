@@ -76,6 +76,7 @@
       url: '/tasks',
       type: 'GET',
       success: function(data){
+
         if(data.length > 0){
           fillTable(data);
         }
@@ -86,9 +87,7 @@
   function fillTable(tasks){
 
     var sizeTasks=tasks.length;
-
     $('#tableTasksBody').html('');
-    
     for(var i=0;i<sizeTasks;i++){
 
       if(tasks[i] != null){
