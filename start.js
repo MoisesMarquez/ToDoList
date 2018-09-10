@@ -46,12 +46,14 @@ app.put('/tasks/:id',function (req, res) {
 	
 	for(var i = 0;i<tasks.length;i++){
 		if(tasks[i] != null){
+			
 			if(tasks[i].id == req.params.id){
+				console.log(req.params.id);
 				tasks[i].done = 1;
+				console.log(tasks);
 				break;
 			}
 		}
-		
 	}
 	res.status(200).end();
 });

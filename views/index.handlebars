@@ -94,13 +94,11 @@
         var btnDelete = "<button id='btnDelete"+(tasks[i].id)+"' type='button' class='btn btn-primary'><i class='fas fa-trash-alt'></i> Delete</button>";
         var btnDone = "<button id='btnDone"+(tasks[i].id)+"' type='button' class='btn btn-primary'><i class='fa fa-check'></i> Done</button>";
         var idrow = 'row'+tasks[i].id;
-        var newRow="<tr><th class='inner' scope='row'>"+(i+1)+"</th>"+"<td class='inner' id='"+(idrow)+"'>"+tasks[i].description+"</td><td class='inner' >"+btnDelete+" "+btnDone+"</td></tr>";
+        var newRow="<tr id="+idrow+" ><th class='inner' scope='row'>"+(i+1)+"</th>"+"<td class='inner'>"+tasks[i].description+"</td><td class='inner' >"+btnDelete+" "+btnDone+"</td></tr>";
         $("#tableTasks").append(newRow);
-        var row = $('#'+idrow);
 
         if(tasks[i].done == 1){
-          var row = $(".inner");
-          row.addClass('table-success');
+          $("#"+idrow).addClass('table-success');
           var button = $('#btnDone'+tasks[i].id);
           button.addClass('invisible');
         }
