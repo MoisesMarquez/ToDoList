@@ -27,6 +27,7 @@ app.get('/', function(req, res) {
 app.get('/tasks',function(req, res){
 
 	res.send(tasks);
+	res..status(200).end();
 });
 
 app.post('/tasks', function(req, res) {
