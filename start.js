@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 app.get('/', function(req, res) {
  
   	res.render("index",{val1:19});
+  	res.status(200).end();
 });
 
 app.get('/tasks',function(req, res){
