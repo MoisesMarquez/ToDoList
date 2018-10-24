@@ -20,7 +20,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Agrega Tareas</span>
         </div>
-        <input id="task" placeholder="Escribe una Tarea"type="text" name="task" class="form-control col-xl-8"></input>
+        <input id="task" type="text" name="task" class="form-control col-xl-8"></input>
         <div class="input-group-append">
           <button id="btn-save" type="button"
             class="btn btn-primary" aria-describedby="button-addon2">
@@ -31,22 +31,21 @@
     </div>
 
     <div>
-      <h2 class="text-center">Lista</h2>
+      <h2>Lista</h2>
     </div>
 
-    <div class="col-md-12">
-      <table class="table" id="tableTasks"><thead class="thead-light">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">To Do</th>
-          <th scope="col">Options</th>
-        </tr>
-        </thead>
-        <tbody id="tableTasksBody">
-        </tbody>
-      </table>
-    </div>
-
+      <div class="col-md-12">
+        <table class="table" id="tableTasks"><thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">To Do</th>
+            <th scope="col">Options</th>
+          </tr>
+          </thead>
+          <tbody id="tableTasksBody">
+          </tbody>
+        </table>
+      </div>
     </div>
   </div> 
 <!-- JavaScript -->
@@ -92,18 +91,13 @@
 
     var sizeTasks=tasks.length;
     $('#tableTasksBody').html('');
-    var cont = 0;
     for(var i=0;i<sizeTasks;i++){
 
       if(tasks[i] != null){
-        cont++;
         var btnDelete = "<button id='btnDelete"+(tasks[i].id)+"' type='button' class='btn btn-primary'><i class='fas fa-trash-alt'></i> Delete</button>";
-
         var btnDone = "<button id='btnDone"+(tasks[i].id)+"' type='button' class='btn btn-primary'><i class='fa fa-check'></i> Done</button>";
         var idrow = 'row'+tasks[i].id;
-
-        var newRow="<tr id="+idrow+" ><th class='inner' scope='row'>"+(cont)+"</th>"+"<td class='inner'>"+tasks[i].description+"</td><td class='inner' >"+btnDelete+" "+btnDone+"</td></tr>";
-        
+        var newRow="<tr id="+idrow+" ><th class='inner' scope='row'>"+(i+1)+"</th>"+"<td class='inner'>"+tasks[i].description+"</td><td class='inner' >"+btnDelete+" "+btnDone+"</td></tr>";
         $("#tableTasks").append(newRow);
 
         if(tasks[i].done == 1){
